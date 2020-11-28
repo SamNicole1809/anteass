@@ -11,3 +11,10 @@ spring:
       enabled: true
       max-file-size: -1
       max-request-size: -1
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: is_active
+      logic-delete-value: 0
+      logic-not-delete-value: 1
