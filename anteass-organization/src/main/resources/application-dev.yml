@@ -2,7 +2,7 @@ spring:
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://193.168.1.200:3306/ygs_test2?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=GMT%2B8
+    url: jdbc:mysql://192.168.8.130:3306/anteass?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=GMT%2B8
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       minimum-idle: 3
@@ -11,6 +11,6 @@ spring:
       connection-test-query: SELECT 1
   redis:
     database: 1
-    host: 193.168.1.200
+    host: 192.168.8.130
     port: 6379
     password:
