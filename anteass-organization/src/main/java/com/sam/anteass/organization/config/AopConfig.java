@@ -19,8 +19,10 @@ public class AopConfig {
     @Around("permission() && @annotation(anteassPermission)")
     public Object around(ProceedingJoinPoint proceedingJoinPoint, AnteassPermission anteassPermission) throws Throwable {
         String[] permissions = anteassPermission.value();
+        if (Arrays.binarySearch(permissions, "edu:test") < 0) {
+            return "403";
+        }
         System.out.println(Arrays.asList(permissions));
-        System.out.println(Arrays.binarySearch(permissions, "edu:view"));
         return proceedingJoinPoint.proceed();
     }
 
