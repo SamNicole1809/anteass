@@ -5,7 +5,7 @@ is_active tinyint(1) default 1 not null,
 create_time datetime not null,
 modify_time datetime null,
 create_user bigint unsigned not null,
-modify_user bigint unsigned not null,
+modify_user bigint unsigned null,
 version bigint unsigned default 0 not null
 )default charset=utf8mb4;
 
@@ -13,11 +13,12 @@ create table if not exists sys_user(
 id bigint unsigned primary key,
 user_name varchar(64) not null,
 user_phone varchar(32) not null,
+user_password varchar(128) not null,
 is_active tinyint(1) default 1 not null,
 create_time datetime not null,
 modify_time datetime null,
 create_user bigint unsigned not null,
-modify_user bigint unsigned not null,
+modify_user bigint unsigned null,
 version bigint unsigned default 0 not null,
 unique index uk_user_phone (user_phone)
 )default charset=utf8mb4;
@@ -26,11 +27,12 @@ create table if not exists sys_teacher(
 id bigint unsigned primary key,
 teacher_name varchar(64) not null,
 teacher_phone varchar(32) not null,
+teacher_password varchar(128) not null,
 is_active tinyint(1) default 1 not null,
 create_time datetime not null,
 modify_time datetime null,
 create_user bigint unsigned not null,
-modify_user bigint unsigned not null,
+modify_user bigint unsigned null,
 version bigint unsigned default 0 not null,
 unique index uk_teacher_phone (teacher_phone)
 )default charset=utf8mb4;
@@ -39,11 +41,12 @@ create table if not exists sys_parent(
 id bigint unsigned primary key,
 parent_name varchar(64) not null,
 parent_phone varchar(32) not null,
+parent_password varchar(128) not null,
 is_active tinyint(1) default 1 not null,
 create_time datetime not null,
 modify_time datetime null,
 create_user bigint unsigned not null,
-modify_user bigint unsigned not null,
+modify_user bigint unsigned null,
 version bigint unsigned default 0 not null,
 unique index uk_parent_phone (parent_phone)
 )default charset=utf8mb4;
@@ -56,7 +59,7 @@ is_active tinyint(1) default 1 not null,
 create_time datetime not null,
 modify_time datetime null,
 create_user bigint unsigned not null,
-modify_user bigint unsigned not null,
+modify_user bigint unsigned null,
 version bigint unsigned default 0 not null,
 unique index uk_organ_user_ids (organ_id, organ_user_id)
 )default charset=utf8mb4;
@@ -69,7 +72,7 @@ is_active tinyint(1) default 1 not null,
 create_time datetime not null,
 modify_time datetime null,
 create_user bigint unsigned not null,
-modify_user bigint unsigned not null,
+modify_user bigint unsigned null,
 version bigint unsigned default 0 not null,
 unique index uk_organ_teacher_ids (organ_id, teacher_id)
 )default charset=utf8mb4;
@@ -82,7 +85,7 @@ is_active tinyint(1) default 1 not null,
 create_time datetime not null,
 modify_time datetime null,
 create_user bigint unsigned not null,
-modify_user bigint unsigned not null,
+modify_user bigint unsigned null,
 version bigint unsigned default 0 not null,
 unique index uk_organ_parent_ids (organ_id, parent_id)
 )default charset=utf8mb4;
@@ -96,7 +99,7 @@ is_active tinyint(1) default 1 not null,
 create_time datetime not null,
 modify_time datetime null,
 create_user bigint unsigned not null,
-modify_user bigint unsigned not null,
+modify_user bigint unsigned null,
 version bigint unsigned default 0 not null,
 unique index uk_role_name (role_name)
 )default charset=utf8mb4;
@@ -108,7 +111,7 @@ is_active tinyint(1) default 1 not null,
 create_time datetime not null,
 modify_time datetime null,
 create_user bigint unsigned not null,
-modify_user bigint unsigned not null,
+modify_user bigint unsigned null,
 version bigint unsigned default 0 not null,
 unique index uk_module_name (module_name)
 )default charset=utf8mb4;
@@ -121,7 +124,7 @@ is_active tinyint(1) default 1 not null,
 create_time datetime not null,
 modify_time datetime null,
 create_user bigint unsigned not null,
-modify_user bigint unsigned not null,
+modify_user bigint unsigned null,
 version bigint unsigned default 0 not null,
 unique index uk_permission_code (permission_code)
 )default charset=utf8mb4;
@@ -134,7 +137,7 @@ is_active tinyint(1) default 1 not null,
 create_time datetime not null,
 modify_time datetime null,
 create_user bigint unsigned not null,
-modify_user bigint unsigned not null,
+modify_user bigint unsigned null,
 version bigint unsigned default 0 not null,
 unique index uk_organ_user_id (organ_user_id)
 )default charset=utf8mb4;
