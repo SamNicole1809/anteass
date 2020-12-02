@@ -4,6 +4,7 @@ import com.sam.anteass.common.annotation.AnteassPermission;
 import com.sam.anteass.common.entity.sys.SysUser;
 import com.sam.anteass.common.exception.AnteassNotAllowedException;
 import com.sam.anteass.common.exception.AnteassSqlException;
+import com.sam.anteass.common.utils.AnteassId;
 import com.sam.anteass.organization.service.sys.impl.SysUserServiceImpl;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,5 +52,10 @@ public class TestController {
     @GetMapping("/exp")
     public String testException() throws Exception {
         throw new AnteassNotAllowedException();
+    }
+
+    @GetMapping("/leaf")
+    public String getLeaf() {
+        return AnteassId.getId().toString();
     }
 }
