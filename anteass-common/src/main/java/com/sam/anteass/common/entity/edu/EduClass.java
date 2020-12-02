@@ -1,12 +1,23 @@
-package com.sam.anteass.common.entity.sys;
+package com.sam.anteass.common.entity.edu;
 
 import com.baomidou.mybatisplus.annotation.*;
 
-import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.io.Serializable;
 
-@TableName(value = "sys_ref_organ_teacher")
-public class SysRefOrganTeacher implements Serializable {
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author anteass
+ * @since 2020-12-02
+ */
+@TableName(value = "edu_class")
+public class EduClass implements Serializable {
+
+    private static final long serialVersionUID=1L;
 
     @TableId(value = "id", type = IdType.INPUT)
     private Long id;
@@ -14,12 +25,24 @@ public class SysRefOrganTeacher implements Serializable {
     @TableField(value = "organ_id")
     private Long organId;
 
-    @TableField(value = "teacher_id")
-    private Long teacherId;
+    @TableField(value = "class_name")
+    private String className;
 
-    // 擅长科目
-    @TableField(value = "subject_id")
-    private Long subjectId;
+    @TableField(value = "class_capacity")
+    private Integer classCapacity;
+
+    @TableField(value = "course_id")
+    private Long courseId;
+
+    @TableField(value = "classroom_id")
+    private Long classroomId;
+
+    // 授课课时
+    @TableField(value = "class_period")
+    private BigDecimal classPeriod;
+
+    @TableField(value = "")
+    private String remark;
 
     @TableField(value = "is_active")
     private Boolean active;
@@ -40,6 +63,7 @@ public class SysRefOrganTeacher implements Serializable {
     @TableField(value = "version")
     private Long version;
 
+
     public Long getId() {
         return id;
     }
@@ -56,20 +80,52 @@ public class SysRefOrganTeacher implements Serializable {
         this.organId = organId;
     }
 
-    public Long getTeacherId() {
-        return teacherId;
+    public String getClassName() {
+        return className;
     }
 
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
+    public void setClassName(String className) {
+        this.className = className;
     }
 
-    public Long getSubjectId() {
-        return subjectId;
+    public Integer getClassCapacity() {
+        return classCapacity;
     }
 
-    public void setSubjectId(Long subjectId) {
-        this.subjectId = subjectId;
+    public void setClassCapacity(Integer classCapacity) {
+        this.classCapacity = classCapacity;
+    }
+
+    public Long getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
+    }
+
+    public Long getClassroomId() {
+        return classroomId;
+    }
+
+    public void setClassroomId(Long classroomId) {
+        this.classroomId = classroomId;
+    }
+
+    public BigDecimal getClassPeriod() {
+        return classPeriod;
+    }
+
+    public void setClassPeriod(BigDecimal classPeriod) {
+        this.classPeriod = classPeriod;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public Boolean getActive() {

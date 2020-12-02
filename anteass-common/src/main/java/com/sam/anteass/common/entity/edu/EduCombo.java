@@ -1,12 +1,23 @@
-package com.sam.anteass.common.entity.sys;
+package com.sam.anteass.common.entity.edu;
 
 import com.baomidou.mybatisplus.annotation.*;
 
-import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.io.Serializable;
 
-@TableName(value = "sys_ref_organ_teacher")
-public class SysRefOrganTeacher implements Serializable {
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author anteass
+ * @since 2020-12-02
+ */
+@TableName(value = "edu_combo")
+public class EduCombo implements Serializable {
+
+    private static final long serialVersionUID=1L;
 
     @TableId(value = "id", type = IdType.INPUT)
     private Long id;
@@ -14,12 +25,20 @@ public class SysRefOrganTeacher implements Serializable {
     @TableField(value = "organ_id")
     private Long organId;
 
-    @TableField(value = "teacher_id")
-    private Long teacherId;
+    @TableField(value = "combo_name")
+    private String comboName;
 
-    // 擅长科目
-    @TableField(value = "subject_id")
-    private Long subjectId;
+    @TableField(value = "course_number")
+    private Integer courseNumber;
+
+    @TableField(value = "good_number")
+    private Integer goodNumber;
+
+    @TableField(value = "fee_number")
+    private Integer feeNumber;
+
+    @TableField(value = "price_total")
+    private BigDecimal priceTotal;
 
     @TableField(value = "is_active")
     private Boolean active;
@@ -40,6 +59,7 @@ public class SysRefOrganTeacher implements Serializable {
     @TableField(value = "version")
     private Long version;
 
+
     public Long getId() {
         return id;
     }
@@ -56,20 +76,44 @@ public class SysRefOrganTeacher implements Serializable {
         this.organId = organId;
     }
 
-    public Long getTeacherId() {
-        return teacherId;
+    public String getComboName() {
+        return comboName;
     }
 
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
+    public void setComboName(String comboName) {
+        this.comboName = comboName;
     }
 
-    public Long getSubjectId() {
-        return subjectId;
+    public Integer getCourseNumber() {
+        return courseNumber;
     }
 
-    public void setSubjectId(Long subjectId) {
-        this.subjectId = subjectId;
+    public void setCourseNumber(Integer courseNumber) {
+        this.courseNumber = courseNumber;
+    }
+
+    public Integer getGoodNumber() {
+        return goodNumber;
+    }
+
+    public void setGoodNumber(Integer goodNumber) {
+        this.goodNumber = goodNumber;
+    }
+
+    public Integer getFeeNumber() {
+        return feeNumber;
+    }
+
+    public void setFeeNumber(Integer feeNumber) {
+        this.feeNumber = feeNumber;
+    }
+
+    public BigDecimal getPriceTotal() {
+        return priceTotal;
+    }
+
+    public void setPriceTotal(BigDecimal priceTotal) {
+        this.priceTotal = priceTotal;
     }
 
     public Boolean getActive() {
@@ -119,4 +163,5 @@ public class SysRefOrganTeacher implements Serializable {
     public void setVersion(Long version) {
         this.version = version;
     }
+
 }

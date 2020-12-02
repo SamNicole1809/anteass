@@ -1,12 +1,22 @@
-package com.sam.anteass.common.entity.sys;
+package com.sam.anteass.common.entity.edu;
 
 import com.baomidou.mybatisplus.annotation.*;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.io.Serializable;
 
-@TableName(value = "sys_ref_organ_teacher")
-public class SysRefOrganTeacher implements Serializable {
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author anteass
+ * @since 2020-12-02
+ */
+@TableName(value = "edu_subject")
+public class EduSubject implements Serializable {
+
+    private static final long serialVersionUID=1L;
 
     @TableId(value = "id", type = IdType.INPUT)
     private Long id;
@@ -14,12 +24,8 @@ public class SysRefOrganTeacher implements Serializable {
     @TableField(value = "organ_id")
     private Long organId;
 
-    @TableField(value = "teacher_id")
-    private Long teacherId;
-
-    // 擅长科目
-    @TableField(value = "subject_id")
-    private Long subjectId;
+    @TableField(value = "subject_name")
+    private String subjectName;
 
     @TableField(value = "is_active")
     private Boolean active;
@@ -40,6 +46,7 @@ public class SysRefOrganTeacher implements Serializable {
     @TableField(value = "version")
     private Long version;
 
+
     public Long getId() {
         return id;
     }
@@ -56,20 +63,12 @@ public class SysRefOrganTeacher implements Serializable {
         this.organId = organId;
     }
 
-    public Long getTeacherId() {
-        return teacherId;
+    public String getSubjectName() {
+        return subjectName;
     }
 
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
-    }
-
-    public Long getSubjectId() {
-        return subjectId;
-    }
-
-    public void setSubjectId(Long subjectId) {
-        this.subjectId = subjectId;
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
 
     public Boolean getActive() {

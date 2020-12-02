@@ -68,6 +68,7 @@ create table if not exists sys_ref_organ_teacher(
 id bigint unsigned primary key,
 organ_id bigint unsigned not null,
 teacher_id bigint unsigned not null,
+subject_id bigint unsigned null,
 is_active tinyint(1) default 1 not null,
 create_time datetime not null,
 modify_time datetime null,
@@ -140,4 +141,183 @@ create_user bigint unsigned not null,
 modify_user bigint unsigned null,
 version bigint unsigned default 0 not null,
 unique index uk_organ_user_id (organ_user_id)
+)default charset=utf8mb4;
+
+create table if not exists edu_course(
+id bigint unsigned primary key,
+organ_id bigint unsigned not null,
+course_name varchar(128) not null,
+course_type tinyint(3) default 1 not null,
+charge_type tinyint(3) default 1 not null,
+price_unit decimal(11,2) default 0.0 not null,
+is_deduction_vacate tinyint(1) default 0 not null,
+is_deduction_absent tinyint(1) default 1 not null,
+remark varchar(255) null,
+is_active tinyint(1) default 1 not null,
+create_time datetime not null,
+modify_time datetime null,
+create_user bigint unsigned not null,
+modify_user bigint unsigned null,
+version bigint unsigned default 0 not null,
+unique index uk_organ_course_name (organ_id, course_name)
+)default charset=utf8mb4;
+
+create table if not exists edu_subject(
+id bigint unsigned primary key,
+organ_id bigint unsigned not null,
+subject_name varchar(128) not null,
+is_active tinyint(1) default 1 not null,
+create_time datetime not null,
+modify_time datetime null,
+create_user bigint unsigned not null,
+modify_user bigint unsigned null,
+version bigint unsigned default 0 not null,
+unique index uk_organ_subject_name (organ_id, subject_name)
+)default charset=utf8mb4;
+
+create table if not exists edu_good(
+id bigint unsigned primary key,
+organ_id bigint unsigned not null,
+course_id bigint unsigned null,
+good_name varchar(128) not null,
+price_unit decimal(11,2) default 0.0 not null,
+stock_warning int default 0 not null,
+is_active tinyint(1) default 1 not null,
+create_time datetime not null,
+modify_time datetime null,
+create_user bigint unsigned not null,
+modify_user bigint unsigned null,
+version bigint unsigned default 0 not null,
+unique index uk_organ_good_name (organ_id, good_name)
+)default charset=utf8mb4;
+
+create table if not exists edu_fee(
+id bigint unsigned primary key,
+organ_id bigint unsigned not null,
+course_id bigint unsigned not null,
+fee_name varchar(128) not null,
+price_unit decimal(11,2) default 0.0 not null,
+is_active tinyint(1) default 1 not null,
+create_time datetime not null,
+modify_time datetime null,
+create_user bigint unsigned not null,
+modify_user bigint unsigned null,
+version bigint unsigned default 0 not null,
+unique index uk_organ_fee_name (organ_id, fee_name)
+)default charset=utf8mb4;
+
+create table if not exists edu_class(
+id bigint unsigned primary key,
+organ_id bigint unsigned not null,
+class_name varchar(128) not null,
+class_capacity int default 1 not null,
+course_id bigint unsigned not null,
+classroom_id bigint unsigned not null,
+class_period decimal(11,2) default 0.0 not null,
+remark varchar(255) null,
+is_active tinyint(1) default 1 not null,
+create_time datetime not null,
+modify_time datetime null,
+create_user bigint unsigned not null,
+modify_user bigint unsigned null,
+version bigint unsigned default 0 not null,
+unique index uk_organ_class_name (organ_id, class_name)
+)default charset=utf8mb4;
+
+create table if not exists edu_classroom(
+id bigint unsigned primary key,
+organ_id bigint unsigned not null,
+classroom_name varchar(128) not null,
+is_active tinyint(1) default 1 not null,
+create_time datetime not null,
+modify_time datetime null,
+create_user bigint unsigned not null,
+modify_user bigint unsigned null,
+version bigint unsigned default 0 not null,
+unique index uk_organ_classroom_name (organ_id, classroom_name)
+)default charset=utf8mb4;
+
+create table if not exists edu_ref_class_teacher(
+id bigint unsigned primary key,
+class_id bigint unsigned not null,
+teacher_id bigint unsigned not null,
+is_active tinyint(1) default 1 not null,
+create_time datetime not null,
+modify_time datetime null,
+create_user bigint unsigned not null,
+modify_user bigint unsigned null,
+version bigint unsigned default 0 not null,
+unique index uk_class_teacher_ids (class_id, teacher_id)
+)default charset=utf8mb4;
+
+create table if not exists edu_combo(
+id bigint unsigned primary key,
+organ_id bigint unsigned not null,
+combo_name varchar(128) not null,
+course_number int default 0 not null,
+good_number int default 0 not null,
+fee_number int default 0 not null,
+price_total decimal(11,2) default 0.0 not null,
+is_active tinyint(1) default 1 not null,
+create_time datetime not null,
+modify_time datetime null,
+create_user bigint unsigned not null,
+modify_user bigint unsigned null,
+version bigint unsigned default 0 not null,
+unique index uk_organ_combo_name (organ_id, combo_name)
+)default charset=utf8mb4;
+
+create table if not exists edu_ref_combo_course(
+id bigint unsigned primary key,
+combo_id bigint unsigned not null,
+course_id bigint unsigned not null,
+price_unit decimal(11,2) default 0.0 not null,
+count_buy decimal(11,2) default 0.0 not null,
+count_present decimal(11,2) default 0.0 not null,
+price_total decimal(11,2) default 0.0 not null,
+discount_fee decimal(11,2) default 0.0 not null,
+price_actual decimal(11,2) default 0.0 not null,
+is_active tinyint(1) default 1 not null,
+create_time datetime not null,
+modify_time datetime null,
+create_user bigint unsigned not null,
+modify_user bigint unsigned null,
+version bigint unsigned default 0 not null,
+unique index uk_combo_course_ids (combo_id, course_id)
+)default charset=utf8mb4;
+
+create table if not exists edu_ref_combo_good(
+id bigint unsigned primary key,
+combo_id bigint unsigned not null,
+good_id bigint unsigned not null,
+price_unit decimal(11,2) default 0.0 not null,
+count_buy decimal(11,2) default 0.0 not null,
+price_total decimal(11,2) default 0.0 not null,
+discount_fee decimal(11,2) default 0.0 not null,
+price_actual decimal(11,2) default 0.0 not null,
+is_active tinyint(1) default 1 not null,
+create_time datetime not null,
+modify_time datetime null,
+create_user bigint unsigned not null,
+modify_user bigint unsigned null,
+version bigint unsigned default 0 not null,
+unique index uk_combo_good_ids (combo_id, good_id)
+)default charset=utf8mb4;
+
+create table if not exists edu_ref_combo_fee(
+id bigint unsigned primary key,
+combo_id bigint unsigned not null,
+fee_id bigint unsigned not null,
+price_unit decimal(11,2) default 0.0 not null,
+count_buy decimal(11,2) default 0.0 not null,
+price_total decimal(11,2) default 0.0 not null,
+discount_fee decimal(11,2) default 0.0 not null,
+price_actual decimal(11,2) default 0.0 not null,
+is_active tinyint(1) default 1 not null,
+create_time datetime not null,
+modify_time datetime null,
+create_user bigint unsigned not null,
+modify_user bigint unsigned null,
+version bigint unsigned default 0 not null,
+unique index uk_combo_fee_ids (combo_id, fee_id)
 )default charset=utf8mb4;
