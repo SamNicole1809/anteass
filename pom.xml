@@ -18,6 +18,7 @@
         <module>anteass-dependencies</module>
         <module>anteass-common</module>
         <module>anteass-organization</module>
+        <module>anteass-platform</module>
     </modules>
 
     <properties>

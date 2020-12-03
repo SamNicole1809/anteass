@@ -4,4 +4,6 @@ public class AnteassConstant {
 
     public static final String LEAF_URI = "http://193.168.1.200:8088/api/segment/get/anteass";
 
+    public static final long ADMIN_ID = 0L;
+
 }

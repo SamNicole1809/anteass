@@ -1,4 +1,4 @@
-package com.sam.anteass.organization.config;
+package com.sam.anteass.platform.config;
 
 import com.sam.anteass.common.exception.*;
 import org.springframework.stereotype.Component;
