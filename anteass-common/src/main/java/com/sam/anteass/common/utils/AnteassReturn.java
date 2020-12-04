@@ -57,27 +57,27 @@ public class AnteassReturn implements Cloneable {
     }
 
     public static String notFound() {
-        return fullMessage(ReturnEnum.NOT_FOUND.getCode(), false, "查询异常，请稍后再试", null);
+        return fullMessage(AnteassReturnEnum.NOT_FOUND.getCode(), false, "查询异常，请稍后再试", null);
     }
 
     public static String paramError() {
-        return fullMessage(ReturnEnum.PARAM_ERROR.getCode(), false, "条件异常，请稍后再试", null);
+        return fullMessage(AnteassReturnEnum.PARAM_ERROR.getCode(), false, "条件异常，请稍后再试", null);
     }
 
     public static String forbidden() {
-        return fullMessage(ReturnEnum.FORBIDDEN.getCode(), false, "请重新登录", null);
+        return fullMessage(AnteassReturnEnum.FORBIDDEN.getCode(), false, "请重新登录", null);
     }
 
     public static String notAllowed() {
-        return fullMessage(ReturnEnum.NOT_ALLOWED.getCode(), false, "无此权限", null);
+        return fullMessage(AnteassReturnEnum.NOT_ALLOWED.getCode(), false, "无此权限", null);
     }
 
     public static String serverError() {
-        return fullMessage(ReturnEnum.SERVER_ERROR.getCode(), false, "系统异常，请稍后再试", null);
+        return fullMessage(AnteassReturnEnum.SERVER_ERROR.getCode(), false, "系统异常，请稍后再试", null);
     }
 
     public static String error(String message) {
-        return fullMessage(ReturnEnum.SUCCESS.getCode(), false, message, null);
+        return fullMessage(AnteassReturnEnum.SUCCESS.getCode(), false, message, null);
     }
 
     public static String ok() {
@@ -89,11 +89,11 @@ public class AnteassReturn implements Cloneable {
     }
 
     public static String ok(String message, Object data) {
-        return fullMessage(ReturnEnum.SUCCESS.getCode(), true, message, data);
+        return fullMessage(AnteassReturnEnum.SUCCESS.getCode(), true, message, data);
     }
 
     public static String ok(Object data) {
-        return fullMessage(ReturnEnum.SUCCESS.getCode(), true, "OK", data);
+        return fullMessage(AnteassReturnEnum.SUCCESS.getCode(), true, "OK", data);
     }
 
     // 完整方法

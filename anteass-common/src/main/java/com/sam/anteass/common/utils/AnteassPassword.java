@@ -4,7 +4,7 @@ import org.springframework.util.DigestUtils;
 
 import java.nio.charset.StandardCharsets;
 
-public class PasswordUtils {
+public class AnteassPassword {
 
     // 加密
     public static String encry(String password) {

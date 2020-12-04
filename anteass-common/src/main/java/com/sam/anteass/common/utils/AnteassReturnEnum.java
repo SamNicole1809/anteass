@@ -1,6 +1,6 @@
 package com.sam.anteass.common.utils;
 
-public enum ReturnEnum {
+public enum AnteassReturnEnum {
 
     SUCCESS("200"),
     FORBIDDEN("403"),
@@ -12,7 +12,7 @@ public enum ReturnEnum {
 
     private String code;
 
-    ReturnEnum(String code) {
+    AnteassReturnEnum(String code) {
         this.code = code;
     }
 

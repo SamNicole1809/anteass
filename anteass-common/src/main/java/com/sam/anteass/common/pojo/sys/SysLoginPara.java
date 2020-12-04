@@ -4,6 +4,7 @@ public class SysLoginPara {
     private String phone;
     private String password;
     private Long organId;
+    private String token;
 
     public String getPhone() {
         return phone;
@@ -27,5 +28,13 @@ public class SysLoginPara {
 
     public void setOrganId(Long organId) {
         this.organId = organId;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

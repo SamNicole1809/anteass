@@ -7,7 +7,7 @@ import com.sam.anteass.common.pojo.sys.SysOrganPara;
 import com.sam.anteass.common.service.sys.impl.*;
 import com.sam.anteass.common.utils.AnteassConstant;
 import com.sam.anteass.common.utils.AnteassId;
-import com.sam.anteass.common.utils.PasswordUtils;
+import com.sam.anteass.common.utils.AnteassPassword;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,7 +48,7 @@ public class SysService {
         // 添加人员
         // 人员不存在就创建，存在只添加机构用户关联
         SysUser sysUser = sysUserService.getUserByPhone(para.getPhone());
-        String passwordEncry = PasswordUtils.encry(para.getPhone().substring(para.getPhone().length() - 6));
+        String passwordEncry = AnteassPassword.encry(para.getPhone().substring(para.getPhone().length() - 6));
         if (sysUser == null) {
             sysUser = new SysUser();
             sysUser.setId(AnteassId.getId());
